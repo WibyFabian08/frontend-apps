@@ -3,13 +3,13 @@ import AOS from "aos";
 import Button from "./buttons/Button";
 import { Product } from "../assets/images";
 
-const About = () => {
+const About = ({aboutRef}) => {
   useEffect(() => {
     AOS.init();
   }, []);
 
   return (
-    <div className="container w-full px-10 mx-auto text-center text-white md:px-20">
+    <div ref={aboutRef} className="container w-full px-10 mx-auto text-center text-white md:px-20">
       <h5 className="text-4xl font-semibold text-center text-primary-400" data-aos="fade-down">
         Tentang Kami
       </h5>

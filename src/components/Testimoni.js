@@ -5,13 +5,16 @@ import { StarIcon } from "../assets/icons";
 import TestimoniCard from "./Cards/TestimoniCard";
 import clients from "../constants/client";
 
-const Testimoni = () => {
+const Testimoni = ({ testimoniRef }) => {
   useEffect(() => {
     AOS.init();
   }, []);
 
   return (
-    <div className="container w-full px-5 mx-auto mt-20 mb-20 text-center text-white lg:px-20">
+    <div
+      ref={testimoniRef}
+      className="container w-full px-5 mx-auto mt-20 mb-20 text-center text-white lg:px-20"
+    >
       <h5
         className="text-4xl font-semibold text-center text-primary-400"
         data-aos="fade-down"

@@ -5,7 +5,7 @@ import Button from "./buttons/Button";
 import MenuBurger from "../assets/icons/menu.png";
 import Close from "../assets/icons/close.png";
 
-const Navbar = ({ heroRef, featureRef, aboutRef }) => {
+const Navbar = ({ heroRef, featureRef, aboutRef, testimoniRef, blogRef }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isShowMenu, setIsShowMenu] = useState(false);
 
@@ -14,6 +14,21 @@ const Navbar = ({ heroRef, featureRef, aboutRef }) => {
 
     return () => (window.onscroll = null);
   };
+
+  const handleClick = (name) => {
+    if (name === "Fitur") {
+      featureRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (name === "Home") {
+      heroRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (name === "Tentang") {
+      aboutRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (name === "Testimoni") {
+      testimoniRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (name === "Blog") {
+      blogRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header
       className={`sticky transition-all duration-200 z-50 ease-in-out top-0 flex items-center h-20 bg-transparent ${
@@ -45,20 +60,23 @@ const Navbar = ({ heroRef, featureRef, aboutRef }) => {
             {navbarMenu.map((data, index) => {
               return (
                 <li className="ml-10" key={index}>
-                  <Link
-                    to={data.path}
+                  <span
+                    onClick={() => handleClick(data.name)}
+                    // to={data.path}
                     className={`${
                       isScrolled ? "text-primary-600" : "text-white"
-                    } transition-all duration-300 hover:text-primary-100`}
+                    } transition-all duration-300 hover:text-primary-100 cursor-pointer`}
                   >
                     {data.name}
-                  </Link>
+                  </span>
                 </li>
               );
             })}
 
             <li className="ml-10">
-              <Button label={"Masuk"}></Button>
+              <Link to="/sign-in">
+                <Button label={"Masuk"}></Button>
+              </Link>
             </li>
           </ul>
         </div>
@@ -106,7 +124,9 @@ const Navbar = ({ heroRef, featureRef, aboutRef }) => {
                 })}
 
                 <li className="w-full">
-                  <Button isFull={true} label={"Masuk"}></Button>
+                  <Link to="/sign-in">
+                    <Button isFull={true} label={"Masuk"}></Button>
+                  </Link>
                 </li>
               </ul>
             </div>

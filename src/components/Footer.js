@@ -6,10 +6,25 @@ import AOS from "aos";
 import contacts from "../constants/contact";
 import information from "../constants/information";
 
-const Footer = () => {
+const Footer = ({ heroRef, featureRef, aboutRef, testimoniRef, blogRef }) => {
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const handleClick = (name) => {
+    if (name === "Fitur") {
+      featureRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (name === "Home") {
+      heroRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (name === "Tentang") {
+      aboutRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (name === "Testimoni") {
+      testimoniRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (name === "Blog") {
+      blogRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
 
   return (
     <>
@@ -90,12 +105,12 @@ const Footer = () => {
               {navbarMenu.map((data, index) => {
                 return (
                   <li className="my-2" key={index}>
-                    <Link
-                      className="text-sm text-white hover:text-primary-100"
-                      to="#"
+                    <span
+                      className="text-sm text-white cursor-pointer hover:text-primary-100"
+                      onClick={() => handleClick(data.name)}
                     >
                       {data.name}
-                    </Link>
+                    </span>
                   </li>
                 );
               })}
