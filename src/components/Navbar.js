@@ -27,6 +27,8 @@ const Navbar = ({ heroRef, featureRef, aboutRef, testimoniRef, blogRef }) => {
     } else if (name === "Blog") {
       blogRef.current.scrollIntoView({ behavior: "smooth" });
     }
+
+    setIsShowMenu(false)
   };
 
   return (
@@ -91,8 +93,8 @@ const Navbar = ({ heroRef, featureRef, aboutRef, testimoniRef, blogRef }) => {
         </div>
 
         <div
-          className={`absolute transition-all duration-300 ease-in-out bg-primary-100 ${
-            isShowMenu ? "opacity-100  z-10 h-screen inset-0" : "opacity-0  h-0"
+          className={`absolute transition-all overflow-hidden duration-300 ease-in-out bg-primary-100 ${
+            isShowMenu ? "opacity-100 z-10 h-screen inset-0" : " h-0"
           }`}
         >
           <div className="relative p-10">
@@ -112,13 +114,13 @@ const Navbar = ({ heroRef, featureRef, aboutRef, testimoniRef, blogRef }) => {
               <ul className="flex flex-col items-start list-none">
                 {navbarMenu.map((data, index) => {
                   return (
-                    <li className="mb-5" key={index}>
-                      <Link
-                        to={data.path}
+                    <li className="mb-5 cursor-pointer" key={index}>
+                      <span
+                        onClick={() => handleClick(data.name)}
                         className={`text-primary-600 font-semibold hover:text-primary-400`}
                       >
                         {data.name}
-                      </Link>
+                      </span>
                     </li>
                   );
                 })}

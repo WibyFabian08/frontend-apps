@@ -1,10 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 
 import { Product } from "../assets/images";
 import { Button } from "../components";
+import { login } from "../redux/actions/authAction";
 
 const SignIn = () => {
+  const dispatch = useDispatch();
+  const { authLoginForm, isLoadingAuth, isError } = useSelector(
+    (state) => state.authState
+  );
+
+  const history = useHistory();
+
+  const handleChange = (e) => {
+    dispatch({
+      type: "SET_AUTH_LOGIN_FORM",
+      name: e.target.name,
+      value: e.target.value,
+    });
+  };
+
+  const handleSubmit = () => {
+    dispatch(login(authLoginForm, history));
+  };
+
   return (
     <div className="container flex items-center justify-center w-full h-screen px-5 mx-auto text-center text-white md:px-10 lg:px-20">
       <div className="flex flex-wrap items-center">
@@ -31,21 +52,38 @@ const SignIn = () => {
             <h5 className="text-xl font-normal text-left text-primary-400">
               Silahkan Masuk Menggunakan Akun Anda
             </h5>
+
+            {isError !== null && (
+              <div className="flex items-center justify-center py-3 mt-2 text-lg text-center text-red-500 bg-red-300 rounded-lg">
+                {isError}
+              </div>
+            )}
+
             <div className="flex flex-col mt-5">
               <input
                 className="px-6 py-2 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
                 type="email"
+                name="email"
                 placeholder="Email"
+                value={authLoginForm.email}
+                onChange={(e) => handleChange(e)}
               />
               <input
                 className="px-6 py-2 mt-5 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
                 type="password"
+                name="password"
                 placeholder="Password"
+                value={authLoginForm.password}
+                onChange={(e) => handleChange(e)}
               />
 
               <div className="flex items-center justify-between mt-5">
                 <div className="flex items-start justify-start w-1/2">
-                  <Button label={"Masuk"}></Button>
+                  <Button
+                    isLoading={isLoadingAuth}
+                    onClick={() => handleSubmit()}
+                    label={"Masuk"}
+                  ></Button>
                 </div>
                 <div className="w-/12">
                   <Link

@@ -1,10 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 
 import { Product } from "../assets/images";
 import { Button } from "../components";
+import { register } from "../redux/actions/authAction";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const { authRegisterForm, isLoadingAuth, isError } = useSelector(
+    (state) => state.authState
+  );
+
+  const history = useHistory();
+
+  const handleChange = (e) => {
+    dispatch({
+      type: "SET_AUTH_REGISTER_FORM",
+      name: e.target.name,
+      value: e.target.value,
+    });
+  };
+
+  const handleSubmit = () => {
+    dispatch(register(authRegisterForm, history));
+  };
+
   return (
     <div className="container flex items-center justify-center w-full h-screen px-5 mx-auto text-center text-white md:px-10 lg:px-20">
       <div className="flex flex-wrap items-center">
@@ -31,31 +52,54 @@ const SignUp = () => {
             <h5 className="text-xl font-normal text-left text-primary-400">
               Silahkan Isi Form Untuk Membuat Akun Anda
             </h5>
+
+            {isError !== null && (
+              <div className="flex items-center justify-center py-3 mt-2 text-lg text-center text-red-500 bg-red-300 rounded-lg">
+                {isError}
+              </div>
+            )}
+
             <div className="flex flex-col mt-5">
               <input
                 className="px-6 py-2 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
                 type="text"
+                name="name"
+                value={authRegisterForm.name}
+                onChange={(e) => handleChange(e)}
                 placeholder="Name"
               />
               <input
                 className="px-6 py-2 mt-5 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
                 type="email"
+                name="email"
+                value={authRegisterForm.email}
+                onChange={(e) => handleChange(e)}
                 placeholder="Email"
               />
               <input
                 className="px-6 py-2 mt-5 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
-                type="text"
+                type="number"
+                name="id_produk"
+                value={authRegisterForm.id_produk}
+                onChange={(e) => handleChange(e)}
                 placeholder="ID Product"
               />
               <input
                 className="px-6 py-2 mt-5 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
                 type="password"
+                name="password"
+                value={authRegisterForm.password}
+                onChange={(e) => handleChange(e)}
                 placeholder="Password"
               />
 
               <div className="flex items-center justify-between mt-5">
                 <div className="flex items-start justify-start w-1/2">
-                  <Button label={"Daftar"}></Button>
+                  <Button
+                    isLoading={isLoadingAuth}
+                    onClick={() => handleSubmit()}
+                    label={"Daftar"}
+                  ></Button>
                 </div>
               </div>
 
@@ -68,9 +112,6 @@ const SignUp = () => {
                 </Link>
               </div>
             </div>
-            {/* <div className="flex items-start justify-start mt-5">
-              <Button label={"Pelajari Lebih Lanjut"}></Button>
-            </div> */}
           </div>
         </div>
         <div className="hidden w-full px-5 mt-10 lg:w-1/2 lg:mt-0 lg:block">

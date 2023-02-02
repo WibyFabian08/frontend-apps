@@ -29,7 +29,7 @@ const SendEmail = () => {
               Forgot Password
             </h5>
             <h5 className="text-xl font-normal text-left text-primary-400">
-              Silahkan Isi Email Anda Untuk Mengisi Form Lupa Password
+              Silahkan Isi Email Anda Untuk Reset Password
             </h5>
             <div className="flex flex-col mt-5">
               <input
