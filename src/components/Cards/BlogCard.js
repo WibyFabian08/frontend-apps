@@ -23,9 +23,9 @@ const BLogCard = ({ data }) => {
             </a>
           </p>
 
-          <p className="mt-2 text-xs text-left text-primary-300">
-            {data.description}
-          </p>
+          <div dangerouslySetInnerHTML={{__html: data.description}} className="mt-2 text-xs text-left text-primary-300">
+            {/* {data.description} */}
+          </div>
         </div>
       </div>
     </div>
