@@ -8,9 +8,7 @@ const MemberRoute = ({
   path,
   ...rest
 }) => {
-  const ok = localStorage.getItem("ACCESS:token");
-
-  localStorage.removeItem("ACCESS:redirect");
+  const ok = localStorage.getItem("user");
 
   return (
     <Route

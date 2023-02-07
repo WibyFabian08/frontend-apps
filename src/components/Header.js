@@ -42,7 +42,7 @@ function Header() {
         <div className="flex justify-center flex-1 lg:mr-32">
           <div className="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
             <div className="absolute inset-y-0 flex items-center pl-2">
-              <SearchIcon className="w-4 h-4" aria-hidden="true" />
+              <SearchIcon className="w-4 h-4 text-primary-600 dark:text-white" aria-hidden="true" />
             </div>
             <Input
               className="pl-8 text-gray-700"
@@ -55,26 +55,26 @@ function Header() {
           {/* <!-- Theme toggler --> */}
           <li className="flex">
             <button
-              className="rounded-md focus:outline-none focus:shadow-outline-purple"
+              className="rounded-md outline-none focus:outline-none"
               onClick={toggleMode}
               aria-label="Toggle color mode"
             >
               {mode === 'dark' ? (
-                <SunIcon className="w-5 h-5" aria-hidden="true" />
+                <SunIcon className="w-5 h-5 text-white" aria-hidden="true" />
               ) : (
-                <MoonIcon className="w-5 h-5" aria-hidden="true" />
+                <MoonIcon className="w-5 h-5 text-primary-600" aria-hidden="true" />
               )}
             </button>
           </li>
           {/* <!-- Notifications menu --> */}
           <li className="relative">
             <button
-              className="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
+              className="relative align-middle rounded-md outline-none focus:outline-none"
               onClick={handleNotificationsClick}
               aria-label="Notifications"
               aria-haspopup="true"
             >
-              <BellIcon className="w-5 h-5" aria-hidden="true" />
+              <BellIcon className="w-5 h-5 text-primary-600 dark:text-white" aria-hidden="true" />
               {/* <!-- Notification badge --> */}
               <span
                 aria-hidden="true"

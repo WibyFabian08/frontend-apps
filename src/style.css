@@ -1,0 +1,22 @@
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(226, 226, 226);
+  }
+
+  .scrollmenu {
+    background-color: #ebecf0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 300px;
+    white-space: nowrap;
+    max-height: 350px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  
