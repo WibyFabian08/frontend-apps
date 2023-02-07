@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Product } from "../assets/images";
-import { Button } from "../components";
+import { Button, InputText } from "../components";
 
 const SendEmail = () => {
   return (
@@ -32,8 +32,7 @@ const SendEmail = () => {
               Silahkan Isi Email Anda Untuk Reset Password
             </h5>
             <div className="flex flex-col mt-5">
-              <input
-                className="px-6 py-2 mt-5 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
+              <InputText
                 type="email"
                 placeholder="Email"
               />
@@ -45,9 +44,6 @@ const SendEmail = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="flex items-start justify-start mt-5">
-              <Button label={"Pelajari Lebih Lanjut"}></Button>
-            </div> */}
           </div>
         </div>
         <div className="hidden w-full px-5 mt-10 lg:w-1/2 lg:mt-0 lg:block">

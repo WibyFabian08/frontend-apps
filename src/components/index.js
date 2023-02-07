@@ -8,6 +8,7 @@ import About from "./About";
 import Blog from "./Blog";
 import BLogCard from "./Cards/BlogCard";
 import Footer from "./Footer";
+import InputText from "./inputs/InputText";
 
 export {
     Navbar,
@@ -20,4 +21,5 @@ export {
     Blog,
     BLogCard,
     Footer,
+    InputText
 }

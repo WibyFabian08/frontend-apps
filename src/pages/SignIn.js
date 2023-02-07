@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 import { Product } from "../assets/images";
-import { Button } from "../components";
+import { Button, InputText } from "../components";
 import { login } from "../redux/actions/authAction";
 
 const SignIn = () => {
@@ -60,16 +60,14 @@ const SignIn = () => {
             )}
 
             <div className="flex flex-col mt-5">
-              <input
-                className="px-6 py-2 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
+              <InputText
                 type="email"
                 name="email"
                 placeholder="Email"
                 value={authLoginForm.email}
                 onChange={(e) => handleChange(e)}
               />
-              <input
-                className="px-6 py-2 mt-5 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
+              <InputText
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -104,9 +102,6 @@ const SignIn = () => {
                 </Link>
               </div>
             </div>
-            {/* <div className="flex items-start justify-start mt-5">
-              <Button label={"Pelajari Lebih Lanjut"}></Button>
-            </div> */}
           </div>
         </div>
         <div className="hidden w-full px-5 mt-10 lg:w-1/2 lg:mt-0 lg:block">

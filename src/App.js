@@ -18,6 +18,8 @@ const SignUp = lazy(() => import("./pages/SignUp"));
 const SendEmail = lazy(() => import("./pages/SendEmail"));
 const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 
+const MainLayout = lazy(() => import("./containers/MainLayout"));
+
 function App() {
   return (
     <>
@@ -35,6 +37,7 @@ function App() {
 
           {/* Place new routes over this */}
           {/* <AuthRoute path="/app" component={Layout}></AuthRoute> */}
+          <Route path={"/dashboard"} component={MainLayout}></Route>
           <Route path="/app" component={Layout} />
 
           {/* If you have an index page, you can remothis Redirect */}

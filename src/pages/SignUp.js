@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 import { Product } from "../assets/images";
-import { Button } from "../components";
+import { Button, InputText } from "../components";
 import { register } from "../redux/actions/authAction";
 
 const SignUp = () => {
@@ -60,32 +60,28 @@ const SignUp = () => {
             )}
 
             <div className="flex flex-col mt-5">
-              <input
-                className="px-6 py-2 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
+              <InputText
                 type="text"
                 name="name"
                 value={authRegisterForm.name}
                 onChange={(e) => handleChange(e)}
                 placeholder="Name"
               />
-              <input
-                className="px-6 py-2 mt-5 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
+              <InputText
                 type="email"
                 name="email"
                 value={authRegisterForm.email}
                 onChange={(e) => handleChange(e)}
                 placeholder="Email"
               />
-              <input
-                className="px-6 py-2 mt-5 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
+              <InputText
                 type="number"
                 name="id_produk"
                 value={authRegisterForm.id_produk}
                 onChange={(e) => handleChange(e)}
                 placeholder="ID Product"
               />
-              <input
-                className="px-6 py-2 mt-5 border border-solid rounded-lg outline-none text-primary-400 border-primary-400 focus:outline-none"
+              <InputText
                 type="password"
                 name="password"
                 value={authRegisterForm.password}
