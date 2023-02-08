@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import routes from "../../routes/sidebar";
-import { NavLink, Route } from "react-router-dom";
+import { Link, NavLink, Route } from "react-router-dom";
 import * as Icons from "../../icons";
 import SidebarSubmenu from "./SidebarSubmenu";
-import { Button } from "@windmill/react-ui";
 import { useDispatch } from "react-redux";
 import { getUserById } from "../../redux/actions/userAction";
 
@@ -25,12 +24,18 @@ function SidebarContent() {
 
   return (
     <div className="py-4 text-gray-500 dark:text-gray-400">
-      <a
-        className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-        href="#"
+      <div
+        className={`bg-primary-600 flex items-center ml-5 justify-center w-16 h-16 text-white `}
+        style={{ borderRadius: "30% 70% 36% 64% / 30% 30% 70% 70%" }}
       >
-        Brand
-      </a>
+        {" "}
+        <Link
+          to="/app/dashboard"
+          className={`transition-all text-primary-100 duration-300`}
+        >
+          Logo
+        </Link>
+      </div>
       <ul className="mt-6">
         {routes.map((route) =>
           route.routes ? (
@@ -61,14 +66,6 @@ function SidebarContent() {
           )
         )}
       </ul>
-      {/* <div className="px-6 my-6">
-        <Button>
-          Create account
-          <span className="ml-2" aria-hidden="true">
-            +
-          </span>
-        </Button>
-      </div> */}
     </div>
   );
 }

@@ -75,7 +75,7 @@ const SignUp = () => {
                 placeholder="Email"
               />
               <InputText
-                type="number"
+                type="text"
                 name="id_produk"
                 value={authRegisterForm.id_produk}
                 onChange={(e) => handleChange(e)}

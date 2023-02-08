@@ -131,10 +131,10 @@ function Dashboard() {
       <PageTitle>Dashboard</PageTitle>
 
       <div className="mb-5">
-        {rataRataAngin === null &&
-        rataRataKelembaban === null &&
-        rataRataNh === null &&
-        rataRataSuhu === null ? (
+        {suhu.length < 1 &&
+        kelembaban.length < 1 &&
+        nh.length < 1 &&
+        angin.length < 1 ? (
           <Skeleton height={200}></Skeleton>
         ) : (
           <InfoCard
@@ -165,8 +165,8 @@ function Dashboard() {
               >
                 <RoundIcon
                   icon={HomeIcon}
-                  iconColorClass="text-teal-500 dark:text-teal-100"
-                  bgColorClass="bg-teal-100 flex items-center justify-center dark:bg-teal-500"
+                  iconColorClass="text-primary-600 dark:text-primary-100"
+                  bgColorClass="bg-primary-100 flex items-center justify-center dark:bg-primary-600"
                   className="mr-5"
                 />
               </InfoCard>

@@ -5,7 +5,7 @@ const initialState = {
   },
   authRegisterForm: {
     name: "",
-    id_produk: 0,
+    id_produk: "",
     email: "",
     password: "",
   },
