@@ -17,7 +17,7 @@ const MemberRoute = ({
         ok ? (
           <Component {...props}></Component>
         ) : (
-          <Redirect to={`/login`}></Redirect>
+          <Redirect to={`/sign-in`}></Redirect>
         )
       }
     ></Route>

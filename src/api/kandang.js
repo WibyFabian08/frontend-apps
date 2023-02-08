@@ -27,3 +27,21 @@ export const register = (data) =>
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
     },
   });
+
+export const sendEmail = (data) =>
+  API.post("?function=sendEmail", data, {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+    },
+  });
+
+export const resetPassword = (data, email) =>
+  API.post(`?function=resetPassword&email=${email}`, data, {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+    },
+  });
+
+export const getUserById = (id) => API.get(`?function=getUserById&id=${id}`);
+
+export const getDataKandang = (id) => API.get(`?function=getDataById&id=${id}`);

@@ -30,15 +30,15 @@ function App() {
           <Route path="/sign-in" component={SignIn} />
           <Route path="/sign-up" component={SignUp} />
           <Route path="/send-email" component={SendEmail} />
-          <Route path="/reset-password" component={ResetPassword} />
+          <Route path="/reset-password/:email" component={ResetPassword} />
           <Route path="/login" component={Login} />
           <Route path="/create-account" component={CreateAccount} />
           <Route path="/forgot-password" component={ForgotPassword} />
 
           {/* Place new routes over this */}
-          {/* <AuthRoute path="/app" component={Layout}></AuthRoute> */}
+          <AuthRoute path="/app" component={Layout}></AuthRoute>
           <Route path={"/dashboard"} component={MainLayout}></Route>
-          <Route path="/app" component={Layout} />
+          {/* <Route path="/app" component={Layout} /> */}
 
           {/* If you have an index page, you can remothis Redirect */}
           <Redirect exact from="/" to="/home" />

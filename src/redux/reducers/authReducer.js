@@ -11,6 +11,7 @@ const initialState = {
   },
   isLoadingAuth: false,
   isError: null,
+  message: null,
 };
 
 const authState = (state = initialState, action) => {
@@ -63,6 +64,12 @@ const authState = (state = initialState, action) => {
       return {
         ...state,
         isError: action.value,
+      };
+
+    case "SET_MESSAGE":
+      return {
+        ...state,
+        message: action.value,
       };
 
     default:
