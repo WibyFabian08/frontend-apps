@@ -15,7 +15,7 @@ function InfoCard({
         <div className="w-full p-4 m-0 rounded-md">
           {icon}
           <div className="w-full ">
-            <p className="mb-2 font-medium text-center text-gray-700 text-md dark:text-gray-200">
+            <p className="mb-2 text-lg font-medium text-center text-gray-700 text-md dark:text-gray-200">
               {title}
             </p>
             <div className="flex justify-between">

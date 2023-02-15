@@ -49,7 +49,7 @@ const Navbar = ({ heroRef, featureRef, aboutRef, testimoniRef, blogRef }) => {
         >
           {" "}
           <Link
-            to="/"
+            to="/home"
             className={`${
               isScrolled ? "text-white" : "text-primary-600"
             } transition-all duration-300 hover:text-black text-sm`}

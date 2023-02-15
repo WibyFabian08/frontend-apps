@@ -39,7 +39,7 @@ const ResetPassword = ({ match }) => {
                 style={{ borderRadius: "30% 70% 36% 64% / 30% 30% 70% 70%" }}
               >
                 {" "}
-                <Link to="/" className={`text-white text-sm `}>
+                <Link to="/home" className={`text-white text-sm `}>
                   Logo
                 </Link>
               </div>

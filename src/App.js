@@ -5,7 +5,6 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import AccessibleNavigationAnnouncer from "./components/AccessibleNavigationAnnouncer";
 import AuthRoute from "./components/Routes/AuthRoute";
 
 const Layout = lazy(() => import("./containers/Layout"));
@@ -17,8 +16,7 @@ const SignIn = lazy(() => import("./pages/SignIn"));
 const SignUp = lazy(() => import("./pages/SignUp"));
 const SendEmail = lazy(() => import("./pages/SendEmail"));
 const ResetPassword = lazy(() => import("./pages/ResetPassword"));
-
-const MainLayout = lazy(() => import("./containers/MainLayout"));
+const NotFound = lazy(() => import("./pages/404"))
 
 function App() {
   return (
@@ -37,11 +35,11 @@ function App() {
 
           {/* Place new routes over this */}
           <AuthRoute path="/app" component={Layout}></AuthRoute>
-          <Route path={"/dashboard"} component={MainLayout}></Route>
           {/* <Route path="/app" component={Layout} /> */}
 
           {/* If you have an index page, you can remothis Redirect */}
           <Redirect exact from="/" to="/home" />
+          <Route path="/*" component={NotFound} />
         </Switch>
       </Router>
     </>
